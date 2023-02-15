@@ -1,6 +1,11 @@
 #! /usr/bin/env sh
 
+# Install main dependencies:
 ./install.sh
+
+# Delete downloaded apt packages from caches:
+sudo apt-get clean
+
 
 # Install optional dependencies:
 # Do this before installing `requirements.txt` below, the optional dependencies
@@ -12,4 +17,9 @@ pip install \
     $OPEN_SPIEL_PYTHON_TENSORFLOW_DEPS \
     $OPEN_SPIEL_PYTHON_MISC_DEPS
 
+# Install python dependencies:
 pip install -r requirements.txt
+
+# Delete downloaded pip packages from caches:
+pip cache purge
+
